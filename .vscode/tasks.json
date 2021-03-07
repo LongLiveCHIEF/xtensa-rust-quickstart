@@ -1,0 +1,35 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build",
+      "args": [
+        "xbuild",
+        "--features",
+        "xtensa-lx-rt/lx6,xtensa-lx/lx6,esp32-hal"
+      ],
+      "command": "cargo",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "flash",
+      "args": [
+        "espflash",
+        "--chip",
+        "esp32",
+        "--example",
+        "esp32",
+        "--speed",
+        "460800",
+        "--features='xtensa-lx-rt/lx6,xtensa-lx/lx6,esp32-hal'",
+        "/dev/ttyUSB0"
+      ],
+      "command": "cargo",
+      "group": "build",
+      "problemMatcher": []
+    }
+  ]
+}
